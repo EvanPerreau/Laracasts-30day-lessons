@@ -24,7 +24,7 @@
                                 Home
                             </x-nav-link>
                             <x-nav-link href="/jobs" :active="request()->is('jobs')">
-                                jobs
+                                Jobs
                             </x-nav-link>
                             <x-nav-link href="/contact" :active="request()->is('contact')">
                                 Contact
@@ -91,7 +91,7 @@
                     Home
                 </x-nav-link>
                 <x-nav-link href="/jobs" :active="request()->is('jobs')">
-                    jobs
+                    Jobs
                 </x-nav-link>
                 <x-nav-link href="/contact" :active="request()->is('contact')">
                     Contact
@@ -119,8 +119,12 @@
     </nav>
 
     <header class="bg-white shadow">
-        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
+
+            <x-button href="/jobs/create">
+                Create a new job
+            </x-button>
         </div>
     </header>
     <main>
