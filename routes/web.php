@@ -8,15 +8,28 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
-    return view('jobs', [
-        'jobs' => Job::with('employer')->simplePaginate(8),
+    return view('jobs.index', [
+        'jobs' => Job::with('employer')->latest()->simplePaginate(8),
     ]);
 });
 
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+});
+
+Route::post('/jobs', function () {
+    Job::create([
+        'title' => request('title'),
+        'employer_id' => 1,
+        'salary' => request('salary')
+    ]);
+
+    return redirect('/jobs');
+});
 
 Route::get('/jobs/{id}', function ($id) {
 
-    return view('job', [
+    return view('jobs.show', [
         'job' => Job::find($id),
     ]);
 });
