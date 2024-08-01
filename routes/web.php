@@ -39,6 +39,35 @@ Route::get('/jobs/{id}', function ($id) {
     ]);
 });
 
+Route::get('/jobs/{id}/edit', function ($id) {
+
+    return view('jobs.edit', [
+        'job' => Job::find($id),
+    ]);
+});
+
+Route::patch('/jobs/{id}', function ($id) {
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => 'required',
+    ]);
+
+    $job = Job::findOrFail($id);
+
+    $job->title = request('title');
+    $job->salary = request('salary');
+
+    $job->save();
+
+    return redirect('/jobs/' . $id);
+});
+
+Route::delete('/jobs/{id}', function ($id) {
+    Job::findOrFail($id)->delete();
+
+    return redirect('/jobs');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });
