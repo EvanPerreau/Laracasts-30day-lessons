@@ -28,7 +28,7 @@
                         <x-form-label for="email">Email</x-form-label>
                         <div class="mt-2">
 
-                            <x-form-input id="email" name="email" placeholder="john.doe@gmail.com" autocomplete="email" type="email" required></x-form-input>
+                            <x-form-input id="email" name="email" placeholder="john.doe@gmail.com" autocomplete="email" type="email" :value="old('email')" required></x-form-input>
 
                             <x-form-error name="email"></x-form-error>
 

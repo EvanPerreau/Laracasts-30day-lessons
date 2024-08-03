@@ -59,22 +59,16 @@
                     <x-form-field>
                         <x-form-label for="password">Password</x-form-label>
                         <div class="mt-2">
-
-                            <x-form-input id="password" name="password" type="password" required></x-form-input>
-
+                            <x-form-input id="password" name="password" type="password" autocomplete="new-password" required></x-form-input>
                             <x-form-error name="password"></x-form-error>
-
                         </div>
                     </x-form-field>
 
                     <x-form-field>
                         <x-form-label for="password_confirmation">Confirm Password</x-form-label>
                         <div class="mt-2">
-
-                            <x-form-input id="password_confirmation" name="password_confirmation" type="password" required></x-form-input>
-
+                            <x-form-input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" required></x-form-input>
                             <x-form-error name="password_confirmation"></x-form-error>
-
                         </div>
                     </x-form-field>
                 </div>
